@@ -94,16 +94,16 @@ public class LoanAccountAutoStarter {
     }
 
     @Bean
+    @Conditional(PrincipalPenaltiesFeesInterestLoanRepaymentScheduleTransactionProcessorCondition.class)
+    public PrincipalPenaltyFeesInterestLoanRepaymentScheduleTransactionProcessor principalPenaltyFeesInterestLoanRepaymentScheduleTransactionProcessor() {
+        return new PrincipalPenaltyFeesInterestLoanRepaymentScheduleTransactionProcessor();
+    }
+
+    @Bean
     @ConditionalOnMissingBean(LoanRepaymentScheduleTransactionProcessorFactory.class)
     public LoanRepaymentScheduleTransactionProcessorFactory loanRepaymentScheduleTransactionProcessorFactory(
             PrincipalInterestPenaltyFeesOrderLoanRepaymentScheduleTransactionProcessor defaultLoanRepaymentScheduleTransactionProcessor,
             List<LoanRepaymentScheduleTransactionProcessor> processors) {
         return new LoanRepaymentScheduleTransactionProcessorFactory(defaultLoanRepaymentScheduleTransactionProcessor, processors);
-    }
-
-    @Bean
-    @Conditional(PrincipalPenaltiesFeesInterestLoanRepaymentScheduleTransactionProcessorCondition.class)
-    public PrincipalPenaltyFeesInterestLoanRepaymentScheduleTransactionProcessor principalPenaltyFeesInterestLoanRepaymentScheduleTransactionProcessor() {
-        return new PrincipalPenaltyFeesInterestLoanRepaymentScheduleTransactionProcessor();
     }
 }

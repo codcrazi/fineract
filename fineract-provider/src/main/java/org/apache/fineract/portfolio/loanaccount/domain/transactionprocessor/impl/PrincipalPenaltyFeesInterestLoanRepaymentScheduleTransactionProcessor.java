@@ -37,9 +37,9 @@ import org.apache.fineract.portfolio.loanaccount.domain.transactionprocessor.Loa
 public class PrincipalPenaltyFeesInterestLoanRepaymentScheduleTransactionProcessor
         extends AbstractLoanRepaymentScheduleTransactionProcessor {
 
-    private static final String STRATEGY_CODE = "principal-penalties-fees-interest-strategy";
+    private static final String STRATEGY_CODE = "principal-due-penalty-interest-fee-in-advance-penalty-principal-fee-interest-strategy";
 
-    private static final String STRATEGY_NAME = "Principal, Penalties, Fees, Interest";
+    private static final String STRATEGY_NAME = "principal, Due penalty, fee, In advance penalty, fee, interest";
 
     @Override
     public String getCode() {

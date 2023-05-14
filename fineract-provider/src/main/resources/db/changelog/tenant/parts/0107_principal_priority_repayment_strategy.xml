@@ -36,7 +36,7 @@
             <column name="id" valueNumeric="10"/>
             <column name="code" value="principal-due-penalty-interest-fee-in-advance-penalty-principal-fee-interest-strategy"/>
             <column name="name" value="principal, Due penalty, fee, In advance penalty, fee, interest"/>
-            <column name="sort_order" valueNumeric="9"/>
+            <column name="sort_order" valueNumeric="10"/>
         </insert>
     </changeSet>
 </databaseChangeLog>
