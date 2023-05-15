@@ -30,6 +30,7 @@ import org.apache.fineract.portfolio.loanaccount.domain.transactionprocessor.imp
 import org.apache.fineract.portfolio.loanaccount.domain.transactionprocessor.impl.InterestPrincipalPenaltyFeesOrderLoanRepaymentScheduleTransactionProcessor;
 import org.apache.fineract.portfolio.loanaccount.domain.transactionprocessor.impl.PrincipalInterestPenaltyFeesOrderLoanRepaymentScheduleTransactionProcessor;
 import org.apache.fineract.portfolio.loanaccount.domain.transactionprocessor.impl.RBILoanRepaymentScheduleTransactionProcessor;
+import org.apache.fineract.portfolio.loanaccount.domain.transactionprocessor.impl.PrincipalPenaltyFeesInterestLoanRepaymentScheduleTransactionProcessor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
@@ -90,6 +91,12 @@ public class LoanAccountAutoStarter {
     @Conditional(DuePenIntPriFeeInAdvancePenIntPriFeeLoanRepaymentScheduleTransactionProcessorCondition.class)
     public DuePenIntPriFeeInAdvancePenIntPriFeeLoanRepaymentScheduleTransactionProcessor duePenIntPriFeeInAdvancePenIntPriFeeLoanRepaymentScheduleTransactionProcessor() {
         return new DuePenIntPriFeeInAdvancePenIntPriFeeLoanRepaymentScheduleTransactionProcessor();
+    }
+
+    @Bean
+    @Conditional(PrincipalPenaltiesFeesInterestLoanRepaymentScheduleTransactionProcessorCondition.class)
+    public PrincipalPenaltyFeesInterestLoanRepaymentScheduleTransactionProcessor principalPenaltyFeesInterestLoanRepaymentScheduleTransactionProcessor() {
+        return new PrincipalPenaltyFeesInterestLoanRepaymentScheduleTransactionProcessor();
     }
 
     @Bean
